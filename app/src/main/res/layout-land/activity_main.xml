@@ -1,0 +1,637 @@
+<!--  MPD XML Starter code - main diet 2023-2024  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/Black"
+    >
+    <!-- Top Bar -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:contentDescription="@string/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_menu_dark"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="[S2028119]"
+            android:textColor="@color/White"
+            android:textSize="20dp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:id="@+id/startButton"
+            android:contentDescription="@string/Button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_refresh_dark"
+            />
+    </LinearLayout>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <!-- Data Area -->
+        <ViewFlipper
+            android:id="@+id/flipper"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <!-- Glasgow -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/glCurrentTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="##°"
+                    android:textColor="@color/White"
+                    android:textSize="50sp" />
+
+                <TextView
+                    android:id="@+id/glWeatherType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="[Weather Type]"
+                    android:textColor="@color/White"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Glasgow"
+                        android:textColor="@color/White"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        />
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_location_dark" />
+                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/glDayTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="##° / ##°"
+                    android:textColor="@color/White"
+                    android:textSize="20sp" />
+
+                <!-- Wind & Humidity Tabs -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <!-- Wind -->
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="95dp"
+                            android:layout_marginTop="5dp"
+                            android:contentDescription="wind"
+                            android:src="@drawable/ic_windpower_light" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Wind"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/glWindSpeed"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="##mph"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <!-- Humidity -->
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:contentDescription="wind"
+                            android:src="@drawable/ic_humidity_light" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Humidity"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/glHumidity"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="##%"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        android:orientation="horizontal">
+                        <!-- Sunrise -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="5dp"
+                                android:contentDescription="wind"
+                                android:src="@drawable/ic_sun_light" />
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:text="sunrise"
+                                android:textAlignment="center"
+                                android:textColor="@color/Black"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/glsunrise"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="00:00"
+                                android:textAlignment="center"
+                                android:textColor="@color/Black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <!-- sunset-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="5dp"
+                                android:contentDescription="wind"
+                                android:src="@drawable/ic_sun_light" />
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:text="sunset"
+                                android:textAlignment="center"
+                                android:textColor="@color/Black"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/glsunset"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="00:00"
+                                android:textAlignment="center"
+                                android:textColor="@color/Black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- UV -->
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:contentDescription="wind"
+                            android:src="@drawable/ic_sun_light" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="UV Risk"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/glUVRisk"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="##%"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Next Days -->
+                <LinearLayout
+                    android:layout_width="710dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_shape"
+                    android:backgroundTint="@color/White"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/glTomorrow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="[Day Name] - ##°/##°"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/glOvermorrow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="[Day Name] - ##°/##°"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- London -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/lonCurrentTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="50sp"
+                    android:text="##°"
+                    android:textColor="@color/White"
+                    android:layout_marginBottom="10dp"
+                    />
+                <TextView
+                    android:id="@+id/lonWeatherType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="[Weather Type]"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="London"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    />
+                <TextView
+                    android:id="@+id/lonDayTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="##° / ##°"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    />
+
+                <!-- Wind & Humidity Tabs -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    >
+
+                    <!-- Wind -->
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="95dp"
+                            android:layout_marginTop="5dp"
+                            android:contentDescription="wind"
+                            android:src="@drawable/ic_windpower_light" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Wind"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/lonWindSpeed"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="##mph"
+                            android:textAlignment="center"
+                            android:textColor="@color/Black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <!-- Humidity -->
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        >
+                        <ImageView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="fill_parent"
+                            android:layout_height="100dp"
+                            android:src="@drawable/ic_humidity_light"
+                            android:contentDescription="wind"
+                            />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="Humidity"
+                            android:textColor="@color/Black"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="5dp"
+                            />
+                        <TextView
+                            android:id="@+id/lonHumidity"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="##%"
+                            android:textColor="@color/Black"
+                            android:textAlignment="center"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <!-- Sunrise -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="10dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="5dp"
+                                android:contentDescription="wind"
+                                android:src="@drawable/ic_sun_light" />
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:text="sunrise"
+                                android:textColor="@color/Black"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"
+                                />
+                            <TextView
+                                android:id="@+id/lonsunrise"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:text="00:00"
+                                android:textColor="@color/Black"
+                                android:textAlignment="center"
+                                />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <!-- sunset-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginRight="10dp"
+                            >
+                            <ImageView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="fill_parent"
+                                android:layout_height="100dp"
+                                android:src="@drawable/ic_sun_light"
+                                android:contentDescription="wind"
+                                />
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:text="sunset"
+                                android:textColor="@color/Black"
+                                android:textAlignment="center"
+                                android:layout_marginBottom="5dp"
+                                />
+                            <TextView
+                                android:id="@+id/lonsunset"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:text="00:00"
+                                android:textColor="@color/Black"
+                                android:textAlignment="center"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- UV -->
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="175dp"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/rounded_shape"
+                        android:backgroundTint="@color/White"
+                        >
+                        <ImageView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="fill_parent"
+                            android:layout_height="100dp"
+                            android:src="@drawable/ic_sun_light"
+                            android:contentDescription="wind"
+                            />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="UV Risk"
+                            android:textColor="@color/Black"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="5dp"
+                            />
+                        <TextView
+                            android:id="@+id/lonUVRisk"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:text="##%"
+                            android:textColor="@color/Black"
+                            android:textAlignment="center"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Next Days -->
+                <LinearLayout
+                    android:layout_width="710dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_shape"
+                    android:backgroundTint="@color/White"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lonTomorrow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="[Day Name] - ##°/##°"
+                        android:textColor="@color/Black"
+                        android:layout_margin="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/lonOvermorrow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="[Day Name] - ##°/##°"
+                        android:textColor="@color/Black"
+                        android:layout_margin="10dp"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ViewFlipper>
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Next"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            />
+        <fragment
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="350dp"
+            tools:context=".MapsActivity"
+            />
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>
